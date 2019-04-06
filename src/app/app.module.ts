@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FoodieComponent } from './foodie/foodie.component';
-import { FoodService } from './food.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
+    AngularFirestoreModule
   ],
-  providers: [FoodService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

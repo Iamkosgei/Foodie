@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodService } from '../food.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-foodie',
@@ -7,18 +9,14 @@ import { FoodService } from '../food.service';
   styleUrls: ['./foodie.component.css']
 })
 export class FoodieComponent implements OnInit {
+  items: Observable<any[]>;
 
-  foodService:FoodService;
-
-  constructor(foodService:FoodService) {
-    this.foodService = foodService;
+  constructor(db: AngularFirestore) {
+    this.items = db.collection('food').valueChanges();
    }
 
   ngOnInit() {
-    this.foodService.getFood().subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    );
- 
+    
   }
+
 }
