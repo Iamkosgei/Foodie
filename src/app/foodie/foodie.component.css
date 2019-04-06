@@ -45,6 +45,8 @@ header
     grid-template-columns: repeat(auto-fill, minmax(300px, auto));
     grid-row-gap: 1rem;
     justify-items: center;
+
+    padding-bottom: 4rem;
     
 }
 
@@ -54,10 +56,3 @@ header
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-footer
-{
-    height: 20vh;
-    width: 100%;
-
-    background: url("../../assets/img/bg3.jpg") center center/cover no-repeat
-}
